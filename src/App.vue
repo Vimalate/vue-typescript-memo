@@ -1,19 +1,25 @@
+<!--
+ * @Author: Vimalakirti
+ * @Date: 2020-06-24 14:35:02
+ * @LastEditTime: 2020-06-24 14:57:35
+ * @Description: 
+ * @FilePath: \Code\memo\src\App.vue
+--> 
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <menu-bar></menu-bar>
   </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import MenuBar from './components/MenuBar.vue'
+@Component({
   components: {
-    HelloWorld
-  }
-}
+    MenuBar
+  },
+})
+export default class App extends Vue {}
 </script>
 
 <style>
