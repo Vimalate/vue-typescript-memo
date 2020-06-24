@@ -1,12 +1,5 @@
-<!--
- * @Author: Vimalakirti
- * @Date: 2020-06-24 14:53:33
- * @LastEditTime: 2020-06-24 18:23:59
- * @Description: 
- * @FilePath: \Code\memo\src\components\MenuBar.vue
---> 
 <template>
-  <div>
+  <!-- 菜单栏 -->
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -72,19 +65,33 @@
       </div>
     </div>
   </nav>
-  </div>
 </template>
 
-<script lang='ts'>
-  import {Component,Vue} from 'vue-property-decorator'
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import ItemData from "../model/ItemData";
+
 @Component
-export default class MenuBar extends Vue{
-  showAdd(){}
-  doFilter(){}
-  doFilterByCateId(){}
+export default class MenuBar extends Vue {
+  // 显示 编辑框
+  showAdd() {
+    this.$store.state.transMemo = new ItemData(-1, 0);
+    this.$store.state.isShow = true;
+  }
+
+  doFilter(cid: number): number {
+    if(cid==-1){
+      return this.$store.state.aHelper.memoList.length;
+    }else{
+      return this.$store.state.aHelper.memoList.filter((ele:any)=>{
+        return ele.categoryId == cid;
+      }).length;
+    }
+  }
+
+  doFilterByCateId(cid:number){
+    console.log(cid)
+    this.$store.state.filterCateId = cid;
+  }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

@@ -1,3 +1,10 @@
+/*
+ * @Author: Vimalakirti
+ * @Date: 2020-06-24 19:28:01
+ * @LastEditTime: 2020-06-24 22:42:51
+ * @Description: 
+ * @FilePath: \Code\memo\src\store\index.ts
+ */ 
 //1.导入 vuex 和 vue
 import Vuex from 'vuex'
 import Vue from 'vue'
